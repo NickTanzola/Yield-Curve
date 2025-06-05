@@ -2,9 +2,7 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
-
-FRED_API_KEY  = '3ebb96bdbc5bb4bc7df2868a9acd49a0'
-
+import key
 
 # Dictionary of series IDs with corresponding maturities (in years)
 series_ids = {
@@ -17,7 +15,7 @@ def get_latest_yield(series_id):
     url = f'https://api.stlouisfed.org/fred/series/observations'
     params = {
         'series_id': series_id,
-        'api_key': FRED_API_KEY,
+        'api_key': key.FRED_API_KEY,
         'file_type': 'json',
         'sort_order': 'desc',
         'limit': 5  # Get last 5 in case some are null
